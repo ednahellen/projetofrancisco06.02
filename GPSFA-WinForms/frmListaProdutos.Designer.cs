@@ -37,15 +37,15 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.lbl = new System.Windows.Forms.Label();
+            this.lblDescricao = new System.Windows.Forms.Label();
             this.gpbCamposDoProduto = new System.Windows.Forms.GroupBox();
             this.btnMedida = new System.Windows.Forms.Button();
             this.lblUnidadeDeMedida = new System.Windows.Forms.Label();
             this.cbbUnidadeMedida = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPeso = new System.Windows.Forms.TextBox();
+            this.lblPeso = new System.Windows.Forms.Label();
+            this.txtDescricao = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.gpbCamposDoProduto.SuspendLayout();
             this.SuspendLayout();
@@ -75,6 +75,7 @@
             this.btnCadastrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCadastrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCadastrar.UseVisualStyleBackColor = true;
+            
             // 
             // btnVoltar
             // 
@@ -156,16 +157,16 @@
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;
             // 
-            // lbl
+            // lblDescricao
             // 
-            this.lbl.AutoSize = true;
-            this.lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl.ForeColor = System.Drawing.Color.Black;
-            this.lbl.Location = new System.Drawing.Point(53, 30);
-            this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(130, 29);
-            this.lbl.TabIndex = 3;
-            this.lbl.Text = "Descrição";
+            this.lblDescricao.AutoSize = true;
+            this.lblDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescricao.ForeColor = System.Drawing.Color.Black;
+            this.lblDescricao.Location = new System.Drawing.Point(50, 30);
+            this.lblDescricao.Name = "lblDescricao";
+            this.lblDescricao.Size = new System.Drawing.Size(130, 29);
+            this.lblDescricao.TabIndex = 3;
+            this.lblDescricao.Text = "Descrição";
             // 
             // gpbCamposDoProduto
             // 
@@ -174,10 +175,10 @@
             this.gpbCamposDoProduto.Controls.Add(this.lblUnidadeDeMedida);
             this.gpbCamposDoProduto.Controls.Add(this.cbbUnidadeMedida);
             this.gpbCamposDoProduto.Controls.Add(this.label2);
-            this.gpbCamposDoProduto.Controls.Add(this.textBox3);
-            this.gpbCamposDoProduto.Controls.Add(this.label1);
-            this.gpbCamposDoProduto.Controls.Add(this.textBox1);
-            this.gpbCamposDoProduto.Controls.Add(this.lbl);
+            this.gpbCamposDoProduto.Controls.Add(this.txtPeso);
+            this.gpbCamposDoProduto.Controls.Add(this.lblPeso);
+            this.gpbCamposDoProduto.Controls.Add(this.txtDescricao);
+            this.gpbCamposDoProduto.Controls.Add(this.lblDescricao);
             this.gpbCamposDoProduto.Font = new System.Drawing.Font("Microsoft YaHei", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbCamposDoProduto.Location = new System.Drawing.Point(12, 2);
             this.gpbCamposDoProduto.Name = "gpbCamposDoProduto";
@@ -205,7 +206,7 @@
             this.lblUnidadeDeMedida.AutoSize = true;
             this.lblUnidadeDeMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUnidadeDeMedida.ForeColor = System.Drawing.Color.Black;
-            this.lblUnidadeDeMedida.Location = new System.Drawing.Point(53, 142);
+            this.lblUnidadeDeMedida.Location = new System.Drawing.Point(50, 141);
             this.lblUnidadeDeMedida.Name = "lblUnidadeDeMedida";
             this.lblUnidadeDeMedida.Size = new System.Drawing.Size(242, 29);
             this.lblUnidadeDeMedida.TabIndex = 62;
@@ -230,36 +231,36 @@
             this.label2.Size = new System.Drawing.Size(0, 29);
             this.label2.TabIndex = 9;
             // 
-            // textBox3
+            // txtPeso
             // 
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(390, 173);
-            this.textBox3.MaxLength = 10;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(134, 39);
-            this.textBox3.TabIndex = 3;
+            this.txtPeso.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPeso.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPeso.Location = new System.Drawing.Point(390, 173);
+            this.txtPeso.MaxLength = 10;
+            this.txtPeso.Name = "txtPeso";
+            this.txtPeso.Size = new System.Drawing.Size(134, 39);
+            this.txtPeso.TabIndex = 3;
             // 
-            // label1
+            // lblPeso
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(385, 146);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 29);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Peso";
+            this.lblPeso.AutoSize = true;
+            this.lblPeso.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPeso.ForeColor = System.Drawing.Color.Black;
+            this.lblPeso.Location = new System.Drawing.Point(385, 141);
+            this.lblPeso.Name = "lblPeso";
+            this.lblPeso.Size = new System.Drawing.Size(73, 29);
+            this.lblPeso.TabIndex = 7;
+            this.lblPeso.Text = "Peso";
             // 
-            // textBox1
+            // txtDescricao
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(58, 72);
-            this.textBox1.MaxLength = 10;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(599, 39);
-            this.textBox1.TabIndex = 1;
+            this.txtDescricao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDescricao.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescricao.Location = new System.Drawing.Point(58, 72);
+            this.txtDescricao.MaxLength = 10;
+            this.txtDescricao.Name = "txtDescricao";
+            this.txtDescricao.Size = new System.Drawing.Size(599, 39);
+            this.txtDescricao.TabIndex = 1;
             // 
             // frmListaProdutos
             // 
@@ -289,12 +290,12 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnNovo;
-        private System.Windows.Forms.Label lbl;
+        private System.Windows.Forms.Label lblDescricao;
         private System.Windows.Forms.GroupBox gpbCamposDoProduto;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtPeso;
+        private System.Windows.Forms.Label lblPeso;
         private System.Windows.Forms.Button btnMedida;
         private System.Windows.Forms.Label lblUnidadeDeMedida;
         private System.Windows.Forms.ComboBox cbbUnidadeMedida;

@@ -225,6 +225,12 @@
     <Compile Include="frmOrigemDoacao.Designer.cs">
       <DependentUpon>frmOrigemDoacao.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPesquisarOrigemDoacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPesquisarOrigemDoacao.Designer.cs">
+      <DependentUpon>frmPesquisarOrigemDoacao.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPesquisarUnidadeDeMedida.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -286,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmOrigemDoacao.resx">
       <DependentUpon>frmOrigemDoacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPesquisarOrigemDoacao.resx">
+      <DependentUpon>frmPesquisarOrigemDoacao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPesquisarUnidadeDeMedida.resx">
       <DependentUpon>frmPesquisarUnidadeDeMedida.cs</DependentUpon>

@@ -11,6 +11,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+// Importando biblioteca para remover espaço extras entre registros.
+using System.Text.RegularExpressions;
 
 namespace GPSFA_WinForms
 {
@@ -84,6 +86,15 @@ namespace GPSFA_WinForms
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
+            if (txtDescricao.Text.Equals(""))
+            {
+                MessageBox.Show("Campo já está vazio!", "Mensagem do sistema",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1);
+                txtDescricao.Focus();
+            }
+            else
             limparCampos();
             btnCadastrar.Enabled = false;
             btnNovo.Enabled = true;
@@ -136,6 +147,7 @@ namespace GPSFA_WinForms
             return 0;
         }
        
+        int respAlterar = 0;
 
         private int alterarUnidadeDeMedida(string descricao)
         {
@@ -150,11 +162,23 @@ namespace GPSFA_WinForms
 
             comm.Connection = DataBaseConnection.OpenConnection();
 
-            int resp = comm.ExecuteNonQuery();
-
+            try
+            {
+                respAlterar = comm.ExecuteNonQuery();
             DataBaseConnection.CloseConnection();
+            }
 
-            return resp;
+            catch (Exception)
+            {
+                MessageBox.Show("Este registro já existe!", "Mensagem do sistema",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error,
+                        MessageBoxDefaultButton.Button1);
+                        
+                        txtDescricao.Enabled = false;
+            }
+
+            return respAlterar;
 
         }
         private int BuscaUnidade(string descricao)
@@ -168,7 +192,7 @@ namespace GPSFA_WinForms
             comm.Parameters.Add("@descricao", MySqlDbType.VarChar, 20).Value = descricao;
 
 
-            comm.Connection = DataBaseConnection.OpenConnection();
+            comm.Connection = DataBaseConnection.OpenConnection(); 
 
             int resp = comm.ExecuteNonQuery();
 
@@ -185,8 +209,8 @@ namespace GPSFA_WinForms
 
         private void habilitarBotoes()
         {
-            btnCadastrar.Enabled = true;           
-            btnLimpar.Enabled = true;           
+            btnCadastrar.Enabled = true;         
+
         }
 
         private void desativaCampos()
@@ -211,7 +235,7 @@ namespace GPSFA_WinForms
             habilitarBotoes();
             desativarBotoesNovo();
             habilitaCampos();
-            txtDescricao.Focus();
+            txtDescricao.Focus();            
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
@@ -235,7 +259,9 @@ namespace GPSFA_WinForms
             else
             {
 
-                int resp = cadastrarUnidades(txtDescricao.Text.Trim());
+                //Regex utilizado para remover espaços extras entre as palavras.
+
+                int resp = cadastrarUnidades(Regex.Replace(txtDescricao.Text, @"\s+", " ").Trim().ToUpper());
 
                 if (resp.Equals(1))
                 {
@@ -275,7 +301,17 @@ namespace GPSFA_WinForms
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            if (alterarUnidadeDeMedida(txtDescricao.Text).Equals(1))
+            if (txtDescricao.Text.Equals(""))
+            {
+                MessageBox.Show("Favor inserir valores!", "Mensagem do sistema",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1);
+                txtDescricao.Enabled = false;
+                desativarBotoes();
+                btnPesquisar.Focus();
+            }
+            else if (alterarUnidadeDeMedida(Regex.Replace(txtDescricao.Text, @"\s+", " ").Trim().ToUpper()).Equals(1))
             {
 
                 MessageBox.Show("Unidade alterada com sucesso!", "Mensagem do sistema",
@@ -303,45 +339,60 @@ namespace GPSFA_WinForms
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Deseja excluir?", "Mensagem do Sistema",
-              MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+        {            
+            
+                DialogResult result = MessageBox.Show("Deseja excluir?", "Mensagem do Sistema",
+                  MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
-            if (result.Equals(DialogResult.Yes))
-            {
-                int resp = excluirUnidade(codUni);
+                if (result.Equals(DialogResult.Yes))
+                {
+                    int resp = excluirUnidade(codUni);
 
-                if (resp.Equals(1))
-                {
-                    MessageBox.Show("Excluido com Sucesso!", "Mensagem do Sistema",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);                   
-                    txtDescricao.Clear();
-                    txtDescricao.Focus();
-                    btnExcluir.Enabled = false;
-                    btnAlterar.Enabled = false;
-                    btnLimpar.Enabled = false;
-                    btnNovo.Enabled = true;
-                    txtDescricao.Enabled = false;
-                }
-                else
-                {
-                    MessageBox.Show("Erro ao excluir!", "Mensagem do Sistema",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                    txtDescricao.Clear();
-                    txtDescricao.Focus();
-                    btnExcluir.Enabled = false;
-                    btnAlterar.Enabled = false;
-                    btnLimpar.Enabled = false;
-                    btnNovo.Enabled = true;
-                    txtDescricao.Enabled = false;
-                }
-            }            
+                    if (resp.Equals(1))
+                    {
+                        MessageBox.Show("Excluido com Sucesso!", "Mensagem do Sistema",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                        txtDescricao.Clear();
+                        txtDescricao.Focus();
+                        btnExcluir.Enabled = false;
+                        btnAlterar.Enabled = false;
+                        btnLimpar.Enabled = false;
+                        btnNovo.Enabled = true;
+                        txtDescricao.Enabled = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao excluir!", "Mensagem do Sistema",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                        txtDescricao.Clear();
+                        txtDescricao.Focus();
+                        btnExcluir.Enabled = false;
+                        btnAlterar.Enabled = false;
+                        btnLimpar.Enabled = false;
+                        btnNovo.Enabled = true;
+                        txtDescricao.Enabled = false;
+                    }
+                }            
         }
+
         private void frmUnidadeMedida_Load(object sender, EventArgs e)
         {
             IntPtr hMenu = GetSystemMenu(this.Handle, false);
             int MenuCount = GetMenuItemCount(hMenu) - 1;
             RemoveMenu(hMenu, MenuCount, MF_BYCOMMAND);
+        }
+
+        private void txtDescricao_TextChanged(object sender, EventArgs e)
+        {
+            if (txtDescricao.Text.Length > 0)
+            {
+                btnLimpar.Enabled = true;
+            }
+            else
+            {                
+                btnAlterar.Enabled = false;
+                btnExcluir.Enabled = false;              
+            }
         }
     }
     }

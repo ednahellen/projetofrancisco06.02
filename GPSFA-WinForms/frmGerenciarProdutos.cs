@@ -27,6 +27,7 @@ namespace GPSFA_WinForms
         {
             InitializeComponent();
             carregarUnidadesCbb();
+            carregarOrigemCbb();
         }
 
         private void frmCadastrarAlimentos_Load(object sender, EventArgs e)
@@ -108,7 +109,25 @@ namespace GPSFA_WinForms
             DataBaseConnection.CloseConnection();
         }
 
-        
+        private void carregarOrigemCbb()
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "SELECT * FROM tbOrigemDoacao ORDER BY nome ASC;";
+            comm.CommandType = CommandType.Text;
+
+            comm.Connection = DataBaseConnection.OpenConnection();
+
+            MySqlDataReader DR = comm.ExecuteReader();
+
+            while (DR.Read())
+            {
+                cbbOrigemDoacao.Items.Add(DR.GetString(1));
+            }
+
+            DataBaseConnection.CloseConnection();
+        }
+
+
 
         private bool VerificaFormatacaoDosCampos()
         {
@@ -241,14 +260,16 @@ namespace GPSFA_WinForms
         private void btnDoacao_Click(object sender, EventArgs e)
         {
             frmOrigemDoacao abrir = new frmOrigemDoacao();
-            abrir.ShowDialog();
+            abrir.Show();
+            this.Hide();
 
         }
 
         private void btnLista_Click(object sender, EventArgs e)
         {
             frmListaProdutos abrir = new frmListaProdutos();
-            abrir.ShowDialog();
+            abrir.Show();
+            this.Hide();
 
         }
 

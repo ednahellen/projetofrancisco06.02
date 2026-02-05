@@ -42,15 +42,15 @@
             this.dtpDataValidade = new System.Windows.Forms.DateTimePicker();
             this.lblDataEntrada = new System.Windows.Forms.Label();
             this.dtpDataEntrada = new System.Windows.Forms.DateTimePicker();
-            this.lbl = new System.Windows.Forms.Label();
+            this.lblDescricao = new System.Windows.Forms.Label();
             this.gpbCamposDoProduto = new System.Windows.Forms.GroupBox();
             this.btnDoacao = new System.Windows.Forms.Button();
-            this.lbOrigemDoacao = new System.Windows.Forms.Label();
+            this.lblOrigemDoacao = new System.Windows.Forms.Label();
             this.cbbOrigemDoacao = new System.Windows.Forms.ComboBox();
             this.btnMedida = new System.Windows.Forms.Button();
             this.btnLista = new System.Windows.Forms.Button();
             this.cbbDescricao = new System.Windows.Forms.ComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlCrud = new System.Windows.Forms.Panel();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
@@ -58,7 +58,7 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.gpbCamposDoProduto.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlCrud.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnNovo
@@ -114,7 +114,7 @@
             this.cbbUnidadeMedida.FormattingEnabled = true;
             this.cbbUnidadeMedida.Location = new System.Drawing.Point(900, 223);
             this.cbbUnidadeMedida.Name = "cbbUnidadeMedida";
-            this.cbbUnidadeMedida.Size = new System.Drawing.Size(236, 39);
+            this.cbbUnidadeMedida.Size = new System.Drawing.Size(254, 39);
             this.cbbUnidadeMedida.TabIndex = 5;
             // 
             // txtPeso
@@ -201,22 +201,22 @@
             this.dtpDataEntrada.Size = new System.Drawing.Size(160, 34);
             this.dtpDataEntrada.TabIndex = 6;
             // 
-            // lbl
+            // lblDescricao
             // 
-            this.lbl.AutoSize = true;
-            this.lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl.ForeColor = System.Drawing.Color.Black;
-            this.lbl.Location = new System.Drawing.Point(35, 192);
-            this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(130, 29);
-            this.lbl.TabIndex = 3;
-            this.lbl.Text = "Descrição";
+            this.lblDescricao.AutoSize = true;
+            this.lblDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescricao.ForeColor = System.Drawing.Color.Black;
+            this.lblDescricao.Location = new System.Drawing.Point(35, 192);
+            this.lblDescricao.Name = "lblDescricao";
+            this.lblDescricao.Size = new System.Drawing.Size(130, 29);
+            this.lblDescricao.TabIndex = 3;
+            this.lblDescricao.Text = "Descrição";
             // 
             // gpbCamposDoProduto
             // 
             this.gpbCamposDoProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(237)))), ((int)(((byte)(228)))));
             this.gpbCamposDoProduto.Controls.Add(this.btnDoacao);
-            this.gpbCamposDoProduto.Controls.Add(this.lbOrigemDoacao);
+            this.gpbCamposDoProduto.Controls.Add(this.lblOrigemDoacao);
             this.gpbCamposDoProduto.Controls.Add(this.cbbOrigemDoacao);
             this.gpbCamposDoProduto.Controls.Add(this.btnMedida);
             this.gpbCamposDoProduto.Controls.Add(this.btnLista);
@@ -233,7 +233,7 @@
             this.gpbCamposDoProduto.Controls.Add(this.dtpDataValidade);
             this.gpbCamposDoProduto.Controls.Add(this.lblDataEntrada);
             this.gpbCamposDoProduto.Controls.Add(this.dtpDataEntrada);
-            this.gpbCamposDoProduto.Controls.Add(this.lbl);
+            this.gpbCamposDoProduto.Controls.Add(this.lblDescricao);
             this.gpbCamposDoProduto.Font = new System.Drawing.Font("Microsoft YaHei", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbCamposDoProduto.Location = new System.Drawing.Point(12, 12);
             this.gpbCamposDoProduto.Name = "gpbCamposDoProduto";
@@ -257,16 +257,16 @@
             this.btnDoacao.UseVisualStyleBackColor = true;
             this.btnDoacao.Click += new System.EventHandler(this.btnDoacao_Click);
             // 
-            // lbOrigemDoacao
+            // lblOrigemDoacao
             // 
-            this.lbOrigemDoacao.AutoSize = true;
-            this.lbOrigemDoacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbOrigemDoacao.ForeColor = System.Drawing.Color.Black;
-            this.lbOrigemDoacao.Location = new System.Drawing.Point(462, 80);
-            this.lbOrigemDoacao.Name = "lbOrigemDoacao";
-            this.lbOrigemDoacao.Size = new System.Drawing.Size(232, 29);
-            this.lbOrigemDoacao.TabIndex = 62;
-            this.lbOrigemDoacao.Text = "Origem da Doação";
+            this.lblOrigemDoacao.AutoSize = true;
+            this.lblOrigemDoacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrigemDoacao.ForeColor = System.Drawing.Color.Black;
+            this.lblOrigemDoacao.Location = new System.Drawing.Point(462, 80);
+            this.lblOrigemDoacao.Name = "lblOrigemDoacao";
+            this.lblOrigemDoacao.Size = new System.Drawing.Size(232, 29);
+            this.lblOrigemDoacao.TabIndex = 62;
+            this.lblOrigemDoacao.Text = "Origem da Doação";
             // 
             // cbbOrigemDoacao
             // 
@@ -284,7 +284,7 @@
             this.btnMedida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMedida.Font = new System.Drawing.Font("Microsoft YaHei", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMedida.Image = ((System.Drawing.Image)(resources.GetObject("btnMedida.Image")));
-            this.btnMedida.Location = new System.Drawing.Point(1142, 226);
+            this.btnMedida.Location = new System.Drawing.Point(1160, 225);
             this.btnMedida.Name = "btnMedida";
             this.btnMedida.Size = new System.Drawing.Size(48, 36);
             this.btnMedida.TabIndex = 60;
@@ -319,20 +319,20 @@
             this.cbbDescricao.TabIndex = 58;
             this.cbbDescricao.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // panel1
+            // pnlCrud
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.btnVoltar);
-            this.panel1.Controls.Add(this.btnLimpar);
-            this.panel1.Controls.Add(this.btnPesquisar);
-            this.panel1.Controls.Add(this.btnAlterar);
-            this.panel1.Controls.Add(this.btnExcluir);
-            this.panel1.Controls.Add(this.btnCadastrar);
-            this.panel1.Controls.Add(this.btnNovo);
-            this.panel1.Location = new System.Drawing.Point(12, 496);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1214, 94);
-            this.panel1.TabIndex = 11;
+            this.pnlCrud.BackColor = System.Drawing.Color.White;
+            this.pnlCrud.Controls.Add(this.btnVoltar);
+            this.pnlCrud.Controls.Add(this.btnLimpar);
+            this.pnlCrud.Controls.Add(this.btnPesquisar);
+            this.pnlCrud.Controls.Add(this.btnAlterar);
+            this.pnlCrud.Controls.Add(this.btnExcluir);
+            this.pnlCrud.Controls.Add(this.btnCadastrar);
+            this.pnlCrud.Controls.Add(this.btnNovo);
+            this.pnlCrud.Location = new System.Drawing.Point(12, 496);
+            this.pnlCrud.Name = "pnlCrud";
+            this.pnlCrud.Size = new System.Drawing.Size(1214, 94);
+            this.pnlCrud.TabIndex = 11;
             // 
             // btnVoltar
             // 
@@ -426,7 +426,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(237)))), ((int)(((byte)(228)))));
             this.ClientSize = new System.Drawing.Size(1235, 602);
             this.Controls.Add(this.gpbCamposDoProduto);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlCrud);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmGerenciarProdutos";
@@ -435,7 +435,7 @@
             this.Load += new System.EventHandler(this.frmCadastrarAlimentos_Load);
             this.gpbCamposDoProduto.ResumeLayout(false);
             this.gpbCamposDoProduto.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            this.pnlCrud.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -454,9 +454,9 @@
         private System.Windows.Forms.DateTimePicker dtpDataValidade;
         private System.Windows.Forms.Label lblDataEntrada;
         private System.Windows.Forms.DateTimePicker dtpDataEntrada;
-        private System.Windows.Forms.Label lbl;
+        private System.Windows.Forms.Label lblDescricao;
         private System.Windows.Forms.GroupBox gpbCamposDoProduto;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlCrud;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnPesquisar;
@@ -467,7 +467,7 @@
         private System.Windows.Forms.Button btnLista;
         private System.Windows.Forms.Button btnMedida;
         private System.Windows.Forms.Button btnDoacao;
-        private System.Windows.Forms.Label lbOrigemDoacao;
+        private System.Windows.Forms.Label lblOrigemDoacao;
         private System.Windows.Forms.ComboBox cbbOrigemDoacao;
     }
 }

@@ -28,6 +28,7 @@ namespace GPSFA_WinForms
             InitializeComponent();   
             btnPesquisarUnidade.Enabled = false;
             ltbPesquisarUnidades.Enabled = false;
+            btnLimpar.Enabled = false;
         }        
 
         public frmPesquisarUnidadeDeMedida(string descricao)
@@ -40,7 +41,8 @@ namespace GPSFA_WinForms
         }                
    
         public void buscaUnidades(string descricao)
-        {
+        {           
+
             MySqlCommand comm = new MySqlCommand();
             comm.CommandText = $"SELECT descricao FROM tbUnidades WHERE descricao LIKE '%{descricao}%';";
 
@@ -53,12 +55,23 @@ namespace GPSFA_WinForms
 
             ltbPesquisarUnidades.Items.Clear();
 
-            while (DR.Read())
-            {                
-                ltbPesquisarUnidades.Items.Add(DR.GetString(0));                
+            if (DR.HasRows == false)
+            {
+                MessageBox.Show("Nenhuma unidade de medida encontrada com este valor.",
+                    "Mensagem do sistema",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1);               
+                txtDescricao.Clear();
+                txtDescricao.Focus();
             }
-
-            DataBaseConnection.CloseConnection();
+            else { 
+                while (DR.Read())
+                {                
+                    ltbPesquisarUnidades.Items.Add(DR.GetString(0));                
+                }      
+            }
+            DataBaseConnection.CloseConnection();            
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -114,11 +127,18 @@ namespace GPSFA_WinForms
             txtDescricao.Clear();
             txtDescricao.Focus();
             btnPesquisarUnidade.Enabled = false;
+            btnLimpar.Enabled = false;           
         }
 
         private void txtDescricao_TextChanged(object sender, EventArgs e)
         {
             btnPesquisarUnidade.Enabled = true;
+            btnLimpar.Enabled = true;
+            if (txtDescricao.Text.Equals(""))
+            {
+                btnPesquisarUnidade.Enabled = false;
+                btnLimpar.Enabled = false;
+            }
         }
     }
 }
