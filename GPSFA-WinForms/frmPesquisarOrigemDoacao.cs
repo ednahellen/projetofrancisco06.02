@@ -1,14 +1,17 @@
-﻿using System;
+﻿using CpfLibrary;
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace GPSFA_WinForms
 {
@@ -36,11 +39,23 @@ namespace GPSFA_WinForms
             RemoveMenu(hMenu, MenuCount, MF_BYCOMMAND);
         }
 
+        string cpfconsulta = "";
+        string cnpjconsulta = "";
+        string cepconsulta = "";
+        string ruaconsulta = "";
+        string numeroconsulta = "";
+        string complementoconsulta = "";
+        string bairroconsulta = "";
+        string cidadeconsulta = "";
+        string estadoconsulta = "";
+        string telCelconsulta = "";
+        string referenciaconsulta = ""; 
+
         public void buscaOrigemDoacao(string nome)
         {
 
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = $"SELECT nome FROM tborigemdoacao WHERE nome LIKE '%{nome}%';";
+            comm.CommandText = $"SELECT nome, cpf, cnpj, cep, rua, numero, complemento, bairro, cidade, estado, telCel, referencia FROM tborigemdoacao WHERE nome LIKE '%{nome}%';";
 
             comm.CommandType = CommandType.Text;
 
@@ -57,7 +72,7 @@ namespace GPSFA_WinForms
                     "Mensagem do sistema",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information,
-                    MessageBoxDefaultButton.Button1);
+                    MessageBoxDefaultButton.Button1);                
                 txtDescricao.Clear();
                 txtDescricao.Focus();
             }
@@ -66,10 +81,21 @@ namespace GPSFA_WinForms
                 while (DR.Read())
                 {
                     ltbPesquisarOrigem.Items.Add(DR.GetString(0));
+                    cpfconsulta = DR.GetString(1);                   
+                    cnpjconsulta = DR.GetString(2);     
+                    cepconsulta = DR.GetString(3);
+                    ruaconsulta = DR.GetString(4);
+                    numeroconsulta = DR.GetString(5);
+                    complementoconsulta = DR.GetString(6);
+                    bairroconsulta = DR.GetString(7);
+                    cidadeconsulta = DR.GetString(8);
+                    estadoconsulta = DR.GetString(9);
+                    telCelconsulta = DR.GetString(10);
+                    referenciaconsulta = DR.GetString(11);
                 }
             }
             DataBaseConnection.CloseConnection();
-        }
+        }        
 
         private void btnPesquisarOrigem_Click(object sender, EventArgs e)
         {
@@ -86,6 +112,10 @@ namespace GPSFA_WinForms
             {
                 buscaOrigemDoacao(txtDescricao.Text);
                 ltbPesquisarOrigem.Enabled = true;
+                txtDescricao.Clear();
+                txtDescricao.Enabled = false;
+                btnPesquisarOrigem.Enabled = false;
+                btnLimpar.Enabled = true;
             }
         }
 
@@ -98,10 +128,13 @@ namespace GPSFA_WinForms
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
-            txtDescricao.Clear();
-            txtDescricao.Focus();
+            
+            ltbPesquisarOrigem.Items.Clear();
             btnPesquisarOrigem.Enabled = false;
             btnLimpar.Enabled = false;
+            txtDescricao.Enabled = true;
+            txtDescricao.Clear();
+            txtDescricao.Focus();
         }
 
         private void txtDescricao_TextChanged(object sender, EventArgs e)
@@ -117,8 +150,19 @@ namespace GPSFA_WinForms
         private void ltbPesquisarOrigem_SelectedIndexChanged(object sender, EventArgs e)
         {
             string nome = ltbPesquisarOrigem.SelectedItem.ToString();
+            string cpf = cpfconsulta;
+            string cnpj = cnpjconsulta;
+            string cep = cepconsulta;
+            string rua = ruaconsulta;
+            string numero = numeroconsulta;
+            string complemento = complementoconsulta;
+            string bairro = bairroconsulta;
+            string cidade = cidadeconsulta;
+            string estado = estadoconsulta;
+            string telCel = telCelconsulta;
+            string referencia = referenciaconsulta;
 
-            frmOrigemDoacao abrir = new frmOrigemDoacao(nome);
+            frmOrigemDoacao abrir = new frmOrigemDoacao(nome, cpf, cnpj, cep, rua, numero, complemento, bairro, cidade, estado, telCel, referencia);
             abrir.Show();
             this.Hide();
         }

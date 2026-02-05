@@ -44,5 +44,11 @@ namespace GPSFA_WinForms
             DataBaseConnection.CloseConnection();
         }
 
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            frmGerenciarProdutos abrir = new frmGerenciarProdutos();
+            abrir.Show();
+            this.Close();
+        }
     }
 }

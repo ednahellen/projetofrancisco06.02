@@ -29,13 +29,26 @@ namespace GPSFA_WinForms
             desativarBotoes();
             desativarCampos();
         }
-        public frmOrigemDoacao(string nome)
-        {
+        public frmOrigemDoacao(string nome, string cpf, string cnpj, string cep, string rua, string numero, string complemento, string bairro, string cidade, string estado, string telCel, string referencia)
+        {            
             InitializeComponent();
             buscaCodigoOrigem(nome);
             btnNovo.Enabled = false;
             btnCadastrar.Enabled = false;
             txtNomeFornecedor.Text = nome;
+            mskCpf.Text = cpf;
+            mskCnpj.Text = cnpj;
+            mskCep.Text = cep;
+            txtRua.Text = rua;
+            txtNumero.Text = numero;
+            txtComplemento.Text = complemento;
+            txtBairro.Text = bairro;
+            cbbCidade.Text = cidade;
+            cbbEstado.Text = estado;
+            mskTelefone.Text = telCel;
+            txtReferencia.Text = referencia;
+            mskCnpj.Enabled = false;
+            mskCpf.Enabled = false;
         }
 
         private int excluirOrigem(int codOri)
@@ -160,17 +173,44 @@ namespace GPSFA_WinForms
 
         public void limparCampos()
         {
-
+            txtNomeFornecedor.Clear();            
         }
 
-        public int cadastrarFornecedores(string nome)
+        public void limparCamposNovo()
+        {
+            txtNomeFornecedor.Clear();
+            txtRua.Clear();
+            txtNumero.Clear();
+            txtComplemento.Clear();
+            txtBairro.Clear();
+            txtReferencia.Clear();
+            mskCep.Clear();
+            mskTelefone.Clear();
+            mskCpf.Clear();
+            mskCnpj.Clear();
+            cbbEstado.Items.Clear();
+            cbbCidade.Items.Clear();            
+        }
+
+        public int cadastrarFornecedores(string nome, string cpf, string cnpj, string cep, string rua, string numero, string complemento, string bairro, string cidade, string estado, string telCel, string referencia)
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "INSERT INTO tborigemdoacao(nome)VALUES(@nome);";
+            comm.CommandText = "INSERT INTO tborigemdoacao(nome, cpf, cnpj, cep, rua, numero, complemento, bairro, cidade, estado, telCel, referencia)VALUES(@nome, @cpf, @cnpj, @cep, @rua, @numero, @complemento, @bairro, @cidade, @estado, @telCel, @referencia);";
             comm.CommandType = CommandType.Text;
 
             comm.Parameters.Clear();
             comm.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = nome;
+            comm.Parameters.Add("@cpf", MySqlDbType.VarChar, 14).Value = cpf;
+            comm.Parameters.Add("@cnpj", MySqlDbType.VarChar, 18).Value = cnpj;
+            comm.Parameters.Add("@cep", MySqlDbType.VarChar, 9).Value = cep;
+            comm.Parameters.Add("@rua", MySqlDbType.VarChar, 100).Value = rua;
+            comm.Parameters.Add("@numero", MySqlDbType.VarChar, 5).Value = numero;
+            comm.Parameters.Add("@complemento", MySqlDbType.VarChar, 100).Value = complemento;
+            comm.Parameters.Add("@bairro", MySqlDbType.VarChar, 100).Value = bairro;
+            comm.Parameters.Add("@cidade", MySqlDbType.VarChar, 100).Value = cidade;
+            comm.Parameters.Add("@estado", MySqlDbType.VarChar, 2).Value = estado;
+            comm.Parameters.Add("@telCel", MySqlDbType.VarChar, 15).Value = telCel;
+            comm.Parameters.Add("@referencia", MySqlDbType.VarChar, 200).Value = referencia;            
 
             comm.Connection = DataBaseConnection.OpenConnection();
 
@@ -284,7 +324,7 @@ namespace GPSFA_WinForms
             {
                 //Regex utilizado para remover espaços extras entre as palavras.
 
-                int resp = cadastrarFornecedores(Regex.Replace(txtNomeFornecedor.Text, @"\s+", " ").Trim().ToUpper());
+                int resp = cadastrarFornecedores(Regex.Replace(txtNomeFornecedor.Text, @"\s+", " ").Trim().ToUpper(), mskCpf.Text, mskCnpj.Text, mskCep.Text, txtRua.Text, txtNumero.Text, txtComplemento.Text, txtBairro.Text, cbbCidade.Text, cbbEstado.Text, mskTelefone.Text, txtReferencia.Text);               
 
                 if (resp.Equals(1))
                 {
@@ -293,7 +333,8 @@ namespace GPSFA_WinForms
                     MessageBoxIcon.Information,
                     MessageBoxDefaultButton.Button1);
                     desativarBotoes();
-                    txtNomeFornecedor.Clear();                    
+                    limparCampos();
+                    desativarCampos();
                     btnNovo.Enabled = true;
                     btnNovo.Focus();
                 }
@@ -333,14 +374,13 @@ namespace GPSFA_WinForms
                 if (resp.Equals(1))
                 {
                     MessageBox.Show("Excluido com Sucesso!", "Mensagem do Sistema",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-                    txtNomeFornecedor.Clear();
-                    txtNomeFornecedor.Focus();
+                    MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);                 
                     btnExcluir.Enabled = false;
                     btnAlterar.Enabled = false;
                     btnLimpar.Enabled = false;
-                    btnNovo.Enabled = true;
-                    txtNomeFornecedor.Enabled = false;
+                    btnNovo.Enabled = true;                 
+                    limparCamposNovo();
+                    desativarCampos();
                 }
                 else
                 {
@@ -353,6 +393,7 @@ namespace GPSFA_WinForms
                     btnLimpar.Enabled = false;
                     btnNovo.Enabled = true;
                     txtNomeFornecedor.Enabled = false;
+                    limparCamposNovo();
                 }
             }
         }
@@ -376,11 +417,13 @@ namespace GPSFA_WinForms
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information,
                 MessageBoxDefaultButton.Button1);
-                limparCampos();
+                limparCamposNovo();
+                desativarCampos();
                 btnLimpar.Enabled = false;
                 btnAlterar.Enabled = false;
                 btnExcluir.Enabled = false;
                 btnNovo.Enabled = true;
+                btnNovo.Focus();
             }
             else
             {
@@ -388,12 +431,48 @@ namespace GPSFA_WinForms
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Error,
                 MessageBoxDefaultButton.Button1);
-                limparCampos();
+                limparCamposNovo();
                 btnLimpar.Enabled = false;
                 btnAlterar.Enabled = false;
                 btnExcluir.Enabled = false;
                 btnNovo.Enabled = false;
             }
+        }
+
+        private void txtNomeFornecedor_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNomeFornecedor.Text.Length > 0)
+            {
+                btnLimpar.Enabled = true;
+            }
+            else
+            {
+                btnAlterar.Enabled = false;
+                btnExcluir.Enabled = false;
+            }
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            if (txtNomeFornecedor.Text.Equals(""))
+            {
+                MessageBox.Show("Campo já está vazio!", "Mensagem do sistema",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1);
+                txtNomeFornecedor.Focus();
+            }
+            else
+               limparCampos();
+               btnCadastrar.Enabled = false;
+               btnNovo.Enabled = true;
+               btnLimpar.Enabled = false;
+               btnAlterar.Enabled = false;
+               btnExcluir.Enabled = false;
+               desativarCampos();
+               btnNovo.Focus(); 
+            
+            
         }
     }
 
