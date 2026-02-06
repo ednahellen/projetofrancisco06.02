@@ -1,6 +1,3 @@
--- APAGANDO O BANCO DE DADOS
-
-DROP DATABASE dbfrancisco;
 
 -- CRIANDO O BANCO DE DADOS
 
@@ -142,42 +139,44 @@ FOREIGN KEY(codUsu) REFERENCES tbUsuarios(codUsu)
 
 -- CRIANDO A TABELA DE PRODUTOS
 	
-CREATE TABLE tbProdutos(
+CREATE TABLE tbProdutos (
+    codProd INT NOT NULL AUTO_INCREMENT,
+    
+    descricao VARCHAR(100) NOT NULL,
+    quantidade INT NOT NULL,
+    peso INT NOT NULL,
+    unidade VARCHAR(20) NOT NULL,
+    
+    codBar VARCHAR(13) NOT NULL,
+    
+    dataDeEntrada DATETIME NOT NULL,
+    dataDeValidade DATETIME NOT NULL,
+    dataLimiteDeSaida DATETIME,
+    
+    codUsu INT NOT NULL,
+    codOri INT NOT NULL,
+    codList INT NOT NULL,
 
-codProd INT NOT NULL AUTO_INCREMENT,  
-descricao VARCHAR(100) NOT NULL,
-quantidade INT NOT NULL,
-peso INT NOT NULL,
-unidade VARCHAR(20) NOT NULL,
-codBar VARCHAR(13) NOT NULL,
-dataDeEntrada DATETIME NOT NULL,
-dataDeValidade DATETIME NOT NULL,
-dataLimiteDeSaida DATETIME,
-codUsu INT NOT NULL,
-codOri INT NOT NULL,
-codList INT NOT NULL,
-PRIMARY KEY(codProd, codBar),
-FOREIGN KEY(codUsu) REFERENCES tbUsuarios(codUsu),
-FOREIGN KEY(codOri) REFERENCES tbOrigemDoacao(codOri),
-FOREIGN KEY(codList) REFERENCES tbLista(codList)
+
+    PRIMARY KEY (codProd),
+
+    CONSTRAINT uq_tbProdutos_codBar UNIQUE (codBar)
 );
 
 -- CRIANDO A TABELA DE CESTAS
 
-CREATE TABLE tbCestas(
+CREATE TABLE tbCestas (
+    codCesta INT NOT NULL AUTO_INCREMENT,
+    codProd INT NOT NULL,
+    quantidade INT NOT NULL,
 
-codCes INT NOT NULL AUTO_INCREMENT,
-dataDeSaida DATE NOT NULL,
-quantidade INT NOT NULL,
-codProd INT NOT NULL,
-codUsu INT NOT NULL,
-dataDeMontagem DATETIME NOT NULL,
-codCli INT NOT NULL,
-PRIMARY KEY(codCes),
-FOREIGN KEY(codProd) REFERENCES tbProdutos(codProd),
-FOREIGN KEY(codUsu) REFERENCES tbUsuarios(codUsu),
-FOREIGN KEY(codCli) REFERENCES tbClientes(codCli)
+    PRIMARY KEY (codCesta),
+
+    CONSTRAINT fk_tbCestas_produto
+        FOREIGN KEY (codProd)
+        REFERENCES tbProdutos(codProd)
 );
+
 
 
 INSERT INTO tbVoluntarios(codVol,nome,telCel,cpf,cep,rua,numero,complemento,bairro,cidade,estado)VALUES(1,'Adminin','0000000-0000','000.000.000-00','00000-000','Grupo Francisco','000','','Jd.Francisco','São Paulo','SP');

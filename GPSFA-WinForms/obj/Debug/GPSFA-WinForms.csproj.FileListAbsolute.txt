@@ -280,7 +280,6 @@ C:\Users\edna.hsry\Documents\Visual Studio 2022\DashboardDeGestaoDeProdutos\GPSF
 C:\Users\edna.hsry\Documents\Visual Studio 2022\DashboardDeGestaoDeProdutos\GPSFA-WinForms\obj\Debug\GPSFA-WinForms.exe.config
 C:\Users\edna.hsry\Documents\Visual Studio 2022\DashboardDeGestaoDeProdutos\GPSFA-WinForms\obj\Debug\GPSFA_WinForms.frmGerenciarProdutos.resources
 C:\Users\edna.hsry\Documents\Visual Studio 2022\DashboardDeGestaoDeProdutos\GPSFA-WinForms\obj\Debug\GPSFA_WinForms.frmDashboard.resources
-C:\Users\edna.hsry\Documents\Visual Studio 2022\DashboardDeGestaoDeProdutos\GPSFA-WinForms\obj\Debug\Projeto_Socorrista.frmEditarEstoque.resources
 C:\Users\edna.hsry\Documents\Visual Studio 2022\DashboardDeGestaoDeProdutos\GPSFA-WinForms\obj\Debug\Projeto_Socorrista.frmEstoque.resources
 C:\Users\edna.hsry\Documents\Visual Studio 2022\DashboardDeGestaoDeProdutos\GPSFA-WinForms\obj\Debug\GPSFA_WinForms.frmGerenciarDadosDoVoluntario.resources
 C:\Users\edna.hsry\Documents\Visual Studio 2022\DashboardDeGestaoDeProdutos\GPSFA-WinForms\obj\Debug\GPSFA_WinForms.frmLogin.resources
@@ -650,3 +649,7 @@ C:\Users\giovanne.shenrique\Documents\Projeto Francisco\DashboardDeGestaoDeProdu
 C:\Users\giovanne.shenrique\Documents\Projeto Francisco\DashboardDeGestaoDeProdutos\GPSFA-WinForms\obj\Debug\GPSFA-Wi.9FD634F4.Up2Date
 C:\Users\giovanne.shenrique\Documents\Projeto Francisco\DashboardDeGestaoDeProdutos\GPSFA-WinForms\obj\Debug\GPSFA-WinForms.exe
 C:\Users\giovanne.shenrique\Documents\Projeto Francisco\DashboardDeGestaoDeProdutos\GPSFA-WinForms\obj\Debug\GPSFA-WinForms.pdb
+C:\Users\edna.hsry\Documents\Visual Studio 2022\DashboardDeGestaoDeProdutos\GPSFA-WinForms\obj\Debug\GPSFA_WinForms.frmCadastrarVoluntarios.resources
+C:\Users\edna.hsry\Documents\Visual Studio 2022\DashboardDeGestaoDeProdutos\GPSFA-WinForms\obj\Debug\Projeto_Socorrista.UnidadeItem.resources
+C:\Users\edna.hsry\Documents\Visual Studio 2022\DashboardDeGestaoDeProdutos\GPSFA-WinForms\obj\Debug\GPSFA_WinForms.frmPesquisarOrigemDoacao.resources
+C:\Users\edna.hsry\Documents\Visual Studio 2022\DashboardDeGestaoDeProdutos\GPSFA-WinForms\obj\Debug\GPSFA_WinForms.frmPesquisarUnidadeDeMedida.resources

@@ -69,12 +69,12 @@
             this.btnNovo.Location = new System.Drawing.Point(3, 12);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(166, 70);
-            this.btnNovo.TabIndex = 11;
+            this.btnNovo.TabIndex = 12;
             this.btnNovo.Text = "&Novo";
             this.btnNovo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;
-            this.btnNovo.Click += new System.EventHandler(this.btnCadastrar_Click);
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // lblCodBarras
             // 
@@ -115,7 +115,7 @@
             this.cbbUnidadeMedida.Location = new System.Drawing.Point(900, 223);
             this.cbbUnidadeMedida.Name = "cbbUnidadeMedida";
             this.cbbUnidadeMedida.Size = new System.Drawing.Size(254, 39);
-            this.cbbUnidadeMedida.TabIndex = 5;
+            this.cbbUnidadeMedida.TabIndex = 8;
             // 
             // txtPeso
             // 
@@ -125,7 +125,7 @@
             this.txtPeso.MaxLength = 10;
             this.txtPeso.Name = "txtPeso";
             this.txtPeso.Size = new System.Drawing.Size(98, 39);
-            this.txtPeso.TabIndex = 4;
+            this.txtPeso.TabIndex = 7;
             // 
             // lblPeso
             // 
@@ -146,7 +146,7 @@
             this.txtQuantidade.MaxLength = 10;
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(137, 39);
-            this.txtQuantidade.TabIndex = 3;
+            this.txtQuantidade.TabIndex = 6;
             // 
             // lblQuantidade
             // 
@@ -178,7 +178,7 @@
             this.dtpDataValidade.Location = new System.Drawing.Point(278, 342);
             this.dtpDataValidade.Name = "dtpDataValidade";
             this.dtpDataValidade.Size = new System.Drawing.Size(160, 34);
-            this.dtpDataValidade.TabIndex = 7;
+            this.dtpDataValidade.TabIndex = 11;
             // 
             // lblDataEntrada
             // 
@@ -199,7 +199,7 @@
             this.dtpDataEntrada.Location = new System.Drawing.Point(36, 342);
             this.dtpDataEntrada.Name = "dtpDataEntrada";
             this.dtpDataEntrada.Size = new System.Drawing.Size(160, 34);
-            this.dtpDataEntrada.TabIndex = 6;
+            this.dtpDataEntrada.TabIndex = 10;
             // 
             // lblDescricao
             // 
@@ -251,7 +251,7 @@
             this.btnDoacao.Location = new System.Drawing.Point(709, 111);
             this.btnDoacao.Name = "btnDoacao";
             this.btnDoacao.Size = new System.Drawing.Size(48, 36);
-            this.btnDoacao.TabIndex = 63;
+            this.btnDoacao.TabIndex = 3;
             this.btnDoacao.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDoacao.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDoacao.UseVisualStyleBackColor = true;
@@ -275,7 +275,7 @@
             this.cbbOrigemDoacao.Location = new System.Drawing.Point(462, 111);
             this.cbbOrigemDoacao.Name = "cbbOrigemDoacao";
             this.cbbOrigemDoacao.Size = new System.Drawing.Size(236, 39);
-            this.cbbOrigemDoacao.TabIndex = 61;
+            this.cbbOrigemDoacao.TabIndex = 2;
             // 
             // btnMedida
             // 
@@ -287,7 +287,7 @@
             this.btnMedida.Location = new System.Drawing.Point(1160, 225);
             this.btnMedida.Name = "btnMedida";
             this.btnMedida.Size = new System.Drawing.Size(48, 36);
-            this.btnMedida.TabIndex = 60;
+            this.btnMedida.TabIndex = 9;
             this.btnMedida.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMedida.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnMedida.UseVisualStyleBackColor = true;
@@ -303,7 +303,7 @@
             this.btnLista.Location = new System.Drawing.Point(518, 223);
             this.btnLista.Name = "btnLista";
             this.btnLista.Size = new System.Drawing.Size(48, 36);
-            this.btnLista.TabIndex = 59;
+            this.btnLista.TabIndex = 5;
             this.btnLista.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLista.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLista.UseVisualStyleBackColor = true;
@@ -316,7 +316,7 @@
             this.cbbDescricao.Location = new System.Drawing.Point(35, 223);
             this.cbbDescricao.Name = "cbbDescricao";
             this.cbbDescricao.Size = new System.Drawing.Size(477, 39);
-            this.cbbDescricao.TabIndex = 58;
+            this.cbbDescricao.TabIndex = 4;
             this.cbbDescricao.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // pnlCrud
@@ -342,7 +342,7 @@
             this.btnVoltar.Location = new System.Drawing.Point(1045, 12);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(166, 70);
-            this.btnVoltar.TabIndex = 17;
+            this.btnVoltar.TabIndex = 18;
             this.btnVoltar.Text = "&Voltar";
             this.btnVoltar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -357,7 +357,7 @@
             this.btnLimpar.Location = new System.Drawing.Point(519, 12);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(166, 70);
-            this.btnLimpar.TabIndex = 14;
+            this.btnLimpar.TabIndex = 15;
             this.btnLimpar.Text = "&Limpar";
             this.btnLimpar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLimpar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -371,11 +371,12 @@
             this.btnPesquisar.Location = new System.Drawing.Point(863, 12);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(166, 70);
-            this.btnPesquisar.TabIndex = 16;
+            this.btnPesquisar.TabIndex = 17;
             this.btnPesquisar.Text = "&Pesquisar";
             this.btnPesquisar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // btnAlterar
             // 
@@ -385,7 +386,7 @@
             this.btnAlterar.Location = new System.Drawing.Point(347, 12);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(166, 70);
-            this.btnAlterar.TabIndex = 13;
+            this.btnAlterar.TabIndex = 14;
             this.btnAlterar.Text = "&Alterar";
             this.btnAlterar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAlterar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -399,7 +400,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(691, 12);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(166, 70);
-            this.btnExcluir.TabIndex = 15;
+            this.btnExcluir.TabIndex = 16;
             this.btnExcluir.Text = "&Excluir";
             this.btnExcluir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -413,11 +414,12 @@
             this.btnCadastrar.Location = new System.Drawing.Point(175, 12);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(166, 70);
-            this.btnCadastrar.TabIndex = 12;
+            this.btnCadastrar.TabIndex = 13;
             this.btnCadastrar.Text = "&Cadastrar";
             this.btnCadastrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCadastrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // frmGerenciarProdutos
             // 

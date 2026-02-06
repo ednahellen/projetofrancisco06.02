@@ -26,8 +26,8 @@ namespace GPSFA_WinForms
         public frmGerenciarProdutos()
         {
             InitializeComponent();
-            carregarUnidadesCbb();
-            carregarOrigemCbb();
+            //carregarUnidadesCbb();
+            //carregarOrigemCbb();
         }
 
         private void frmCadastrarAlimentos_Load(object sender, EventArgs e)
@@ -38,6 +38,7 @@ namespace GPSFA_WinForms
 
             //carregaProdutosNaLista();
             limparCamposDeCadastro();
+            desabilitarCampos();
             //CarregarListaProdutos();
             //cbbTipoDoacao.SelectedIndex = 0;
             //cbbUnidadeMedida.SelectedIndex = 0;
@@ -202,9 +203,12 @@ namespace GPSFA_WinForms
 
             if (enviarDoacoes(nomeItem, quantidade, peso, tipoUnidade, codBar, dataRecebimento, dataValidade, dataLimiteDeSaida, codUsu) == 1)
             {
-                MessageBox.Show("Doação cadastrada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Doação cadastrada com sucesso!", "Sucesso", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //dgvProdutos.Columns.Clear();
                 //CarregarListaProdutos();
+                limparCamposDeCadastro();
+                desabilitarCampos();
             }
             else
             {
@@ -226,18 +230,22 @@ namespace GPSFA_WinForms
 
         public void limparCamposDeCadastro()
         {
-            
+            txtCodBarras.Clear();
             txtQuantidade.Clear();
-            dtpDataValidade.Value = DateTime.Now;
-            DateTime dataRecebimento = Convert.ToDateTime(dtpDataEntrada.Text);
-            dtpDataValidade.Value = DateTime.Now;
-            //cbbUnidadeMedida.SelectedIndex = 0;
             txtPeso.Clear();
+
+            cbbDescricao.SelectedIndex = -1;
+            cbbUnidadeMedida.SelectedIndex = -1;
+
+            dtpDataEntrada.Value = DateTime.Now;
+            dtpDataValidade.Value = DateTime.Now;
+
+            
         }
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -279,6 +287,56 @@ namespace GPSFA_WinForms
             abrir.Show();
             this.Hide();
         }
-        
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            frmGerenciarProdutos abrir = new frmGerenciarProdutos();
+            abrir.Show();
+            this.Hide();
+        }
+
+        public void desabilitarCampos()
+        {
+            cbbDescricao.Enabled = false;
+            txtQuantidade.Enabled = false;
+            txtPeso.Enabled = false;
+            cbbUnidadeMedida.Enabled = false;
+            txtCodBarras.Enabled = false;
+            dtpDataEntrada.Enabled = false;
+            dtpDataValidade.Enabled = false;
+
+            btnCadastrar.Enabled = false;
+            btnAlterar.Enabled = true;
+            btnExcluir.Enabled = true;
+            btnVoltar.Enabled = true;
+
+            btnNovo.Enabled = true;
+
+        }
+
+        public void habilitarCampos()
+        {
+            cbbDescricao.Enabled = true;
+            txtQuantidade.Enabled = true;
+            txtPeso.Enabled = true;
+            cbbUnidadeMedida.Enabled = true;
+            txtCodBarras.Enabled = true;
+            dtpDataEntrada.Enabled = true;
+            dtpDataValidade.Enabled = true;
+
+            btnCadastrar.Enabled = true;
+
+            btnAlterar.Enabled = false;
+            btnExcluir.Enabled = false;
+
+            btnNovo.Enabled = false;
+            cbbDescricao.Focus();
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            limparCamposDeCadastro();
+            habilitarCampos();
+        }
     }
 }
