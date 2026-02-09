@@ -653,3 +653,4 @@ C:\Users\edna.hsry\Documents\Visual Studio 2022\DashboardDeGestaoDeProdutos\GPSF
 C:\Users\edna.hsry\Documents\Visual Studio 2022\DashboardDeGestaoDeProdutos\GPSFA-WinForms\obj\Debug\Projeto_Socorrista.UnidadeItem.resources
 C:\Users\edna.hsry\Documents\Visual Studio 2022\DashboardDeGestaoDeProdutos\GPSFA-WinForms\obj\Debug\GPSFA_WinForms.frmPesquisarOrigemDoacao.resources
 C:\Users\edna.hsry\Documents\Visual Studio 2022\DashboardDeGestaoDeProdutos\GPSFA-WinForms\obj\Debug\GPSFA_WinForms.frmPesquisarUnidadeDeMedida.resources
+C:\Users\edna.hsry\Documents\Visual Studio 2022\DashboardDeGestaoDeProdutos\GPSFA-WinForms\obj\Debug\GPSFA_WinForms.frmRelatorio.resources

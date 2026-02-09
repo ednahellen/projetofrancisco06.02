@@ -138,14 +138,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GPSFA-WinForms.exe" size="976896">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GPSFA-WinForms.exe" size="988672">
       <assemblyIdentity name="GPSFA-WinForms" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>vkC18gxrMZ0V0Rsw2uWhyr1E26gqS6IBT8zGnaYveKQ=</dsig:DigestValue>
+        <dsig:DigestValue>Emwu1c6aJFojjVYIg2at7eK/sU3djHNmCNMltvROCJs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
